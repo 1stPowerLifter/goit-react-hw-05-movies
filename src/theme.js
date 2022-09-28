@@ -2,9 +2,9 @@ export const theme = {
   colors: {
     black: '#000',
     white: '#fff',
-    text: '#2a2a2a',
+    text: '#7e7070',
     background: '#fff',
-    primary: '#07c',
+    primary: 'orangered',
     secondary: '#05a',
     accent: '#609',
     muted: '#f6f6f6',
@@ -33,6 +33,8 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    bold: '2px solid',
+    dashed: '1px dashed'
   },
   radii: {
     none: '0',

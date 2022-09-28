@@ -41,4 +41,14 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100%;
     height: auto;
   }
+  
+  main {
+    padding: ${p => p.theme.space[4]}px ${p => p.theme.space[4]}px 0;
+  }
+
+  button, input {
+    border: none;
+    outline: none;
+    height: 40px;
+  }
 `;

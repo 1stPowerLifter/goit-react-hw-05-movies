@@ -1,9 +1,11 @@
 import { getMovies } from "API/API"
-import { Box } from "components/Box"
+import { MoviesList } from "components/MoviesList/MoviesList"
 import { useEffect, useState } from "react"
-import { Link, useLocation, useSearchParams } from "react-router-dom"
+import { useLocation, useSearchParams } from "react-router-dom"
+import { Button, Form, Input } from "./Movies.styled"
+import {ImFilm} from "react-icons/im"
 
-export const Movies = () => {
+const Movies = () => {
     const [movies, setMovies] = useState([])
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("query");
@@ -24,21 +26,15 @@ export const Movies = () => {
 
     return (
         <main>
-            <Box as="form" onSubmit={handleSearch}>
-                <input type="text" name="search" defaultValue={query} />
-                <button type="submit">X</button>
-            </Box>
+            <Form onSubmit={handleSearch}>
+                <Input type="text" name="search" defaultValue={query} />
+                <Button type="submit"><ImFilm size={32}/></Button>
+            </Form>
 
-            <Box as="ul">
-                {movies.map(({ to, id, title }) => (
-                    < li key={id} >
-                        <Link to={`${id}`} state={{ from: location }}>
-                            {title}
-                        </Link>
-                    </li>
-                ))}
-            </Box>
+            <MoviesList movies={movies} location={location} />
 
         </main>
     )
 }
+
+export default Movies
